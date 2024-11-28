@@ -1,0 +1,29 @@
+@use '../../styles/vars' as *;
+
+.product {
+
+    .title {
+        color: $neutral-500;
+    }
+
+    .price-wrapper {
+        background-color: $neutral-250;
+        padding: 4px 12px;
+        color: $neutral-600;
+        font-size: 14px;
+        font-weight: 700;
+        width: max-content;
+    }
+
+    .add-cart {
+        background-color: $neutral-500;
+        color: $neutral-0;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+
+        &:hover {
+            background-color: $neutral-600;
+        }
+    }
+}

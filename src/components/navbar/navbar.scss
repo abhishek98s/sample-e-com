@@ -1,5 +1,4 @@
-$neutral-300: hsl(0, 0%, 97%);
-$neutral-400: hsl(0, 0%, 95%);
+@use '../../styles/vars' as *;
 
 nav {
     border-bottom: 1px solid $neutral-400;
