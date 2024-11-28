@@ -24,7 +24,7 @@ const CartProduct: React.FC<CartProductProps> = ({ product, deleteProduct }) => 
                 deleteProduct(title);
             };
             setQuantity((prev) => prev - 1);
-            dispatch(setNoOfQuantity({ id, isAdd: 'add' }))
+            dispatch(setNoOfQuantity({ id }))
         }
     }
 
