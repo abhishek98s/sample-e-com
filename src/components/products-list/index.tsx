@@ -16,18 +16,22 @@ function ProductsList() {
     }
 
     return (
-        <section className="product-wrapper">
-            <div className="cus-container">
-                <div className="title mt-[70px] text-[14px] mb-[40px]">Products</div>
+      <section className="product-wrapper">
+        <div className="cus-container">
+          <div className="title mt-[70px] text-[14px] mb-[40px]">Products</div>
 
-                <div className="product-list grid grid-cols-4 gap-4">
-                    {product_list.map((product: IProduct) => (
-                        <Product key={product.id} product={product} addToCart={handleAddToCart} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
+          <div className="product-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {product_list.map((product: IProduct) => (
+              <Product
+                key={product.id}
+                product={product}
+                addToCart={handleAddToCart}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
 }
 
 export default ProductsList;

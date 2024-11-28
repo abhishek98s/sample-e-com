@@ -78,7 +78,7 @@ const Sidebar = () => {
                     <div className="tot-price p-[4px_12px]">{`$ ${totalPrice}`}</div>
                 </div>
 
-                <button onClick={closeCart} className='close-cart w-full h-[40px] flex-center z-10 absolute top-[8px] -left-[60px] max-w-[40px] rounded-[4px]'>
+                <button onClick={closeCart} className='close-cart w-full h-[40px] flex-center z-10 absolute top-[8px] -left-[50px] max-w-[40px] rounded-[4px]'>
                     <img className='max-w-[20px] w-full h-[20px]' src={close} alt="icon-cancel" />
                 </button>
             </div>

@@ -31,13 +31,13 @@ const CartProduct: React.FC<CartProductProps> = ({ product, deleteProduct }) => 
     return (
         <div className="cart-product flex gap-4 mb-[24px] p-[8px] rounded-[4px]">
             <div className="left-block max-w-[60px]">
-                <img className='max-w-[60px] rounded-[4px] w-full h-[60px] mb-[12px]' src={image} alt='cart' />
+                <img className='max-w-[60px] aspect-square rounded-[4px] w-full h-[60px] mb-[12px]' src={image} alt='cart' />
 
                 <button onClick={() => deleteProduct(title)} className='text-[14px] font-bold'>Delete</button>
             </div>
 
             <div className="right-block flex-1">
-                <div className="title font-bold text-[16px] mb-[12px]">Italian</div>
+                <div className="title font-bold text-[16px] mb-[12px]">{title}</div>
 
                 <div className="quantity-box flex gap-2 mb-[12px]">
                     <button onClick={() => handleQuantity()} className='max-w-[24px] rounded-[4px] w-full h-[24px] flex-center text-[16px]'>-</button>
