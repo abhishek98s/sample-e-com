@@ -1,0 +1,27 @@
+@use '../../styles/vars' as *;
+
+.cart-product {
+    border: 1px solid transparent;
+
+    &:hover {
+        border: 1px solid $neutral-400;
+    }
+
+    .price {
+        color: $neutral-200;
+    }
+
+    .quantity-box {
+        .quantity {
+            background-color: $neutral-250;
+        }
+
+        button {
+            background-color: transparent;
+
+            &:hover {
+                background-color: $neutral-300;
+            }
+        }
+    }
+}

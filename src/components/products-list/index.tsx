@@ -11,7 +11,8 @@ function ProductsList() {
     const dispatch = useDispatch();
 
     const handleAddToCart = (product: IProduct) => {
-        dispatch(addToCart(product));
+        const addQuantiy: IProduct = { ...product, quantity: 1 };
+        dispatch(addToCart(addQuantiy));
     }
 
     return (

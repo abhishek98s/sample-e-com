@@ -60,9 +60,26 @@ const productSlice = createSlice({
         setProducts: (state, action: PayloadAction<IProduct[]>) => {
             state.products = action.payload;
         },
+        setNoOfQuantity: (state, action: PayloadAction<{ id: number, isAdd?: 'add' }>) => {
+            const { id, isAdd } = action.payload;
+
+            state.cart.map((item: IProduct, index: number) => {
+                if (item.id === action.payload.id) {
+
+                    if (isAdd === 'add') {
+                        item.quantity! += 1;
+                    } else {
+                        item.quantity = item.quantity! - 1;
+                    }
+                }
+
+                return item;
+            });
+
+        }
     },
 });
 
-export const { addToCart, removeFromCart, setProducts } = productSlice.actions;
+export const { addToCart, removeFromCart, setProducts, setNoOfQuantity } = productSlice.actions;
 
 export default productSlice.reducer;

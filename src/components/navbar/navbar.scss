@@ -13,4 +13,16 @@ nav {
             background-color: $neutral-300;
         }
     }
+
+    .sidebar {
+        border-left: 1px solid $neutral-400;
+
+        .sort-btn {
+            background-color: $neutral-300;
+
+            &:hover {
+                background-color: $neutral-400;
+            }
+        }
+    }
 }

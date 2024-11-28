@@ -3,6 +3,7 @@ import cart from '../../images/cart.svg';
 import './navbar.scss';
 import { useSelector } from 'react-redux';
 import { IRootState } from '../../redux/store';
+import Sidebar from '../sidebar';
 
 function Navbar() {
     const car_products = useSelector((state: IRootState) => state.product.cart);
@@ -22,6 +23,8 @@ function Navbar() {
                     </div>
                 </div>
             </div>
+
+            <Sidebar />
         </nav>
     )
 };
