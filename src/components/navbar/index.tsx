@@ -16,10 +16,10 @@ function Navbar() {
     }
 
     return (
-        <nav>
+        <nav className='fixed left-0 right-0 top-0 bg-white'>
             <div className="cus-container">
                 <div className="h-[60px] flex justify-between items-center">
-                    <div className='text-[14px] text-black font-bold'>Logo</div>
+                    <div className='text-[14px] text-black font-bold'>Shop</div>
 
                     <div onClick={() => toggleSidebarCart()} className="icon_wrapper cursor-pointer flex-center rounded-full p-[6px] relative">
                         <img src={cart} className='max-w-[20px] w-full h-[20px]' alt='icon-cart' />

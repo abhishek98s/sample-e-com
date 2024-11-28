@@ -65,7 +65,7 @@ const Sidebar = () => {
                     </div>
                 </div>
 
-                <div className="cart-product-list h-full flex-1">
+                <div className="cart-product-list h-full flex-1 overflow-y-scroll">
                     {cartProducts && cartProducts.map((cart: IProduct) => (
                         <CartProduct key={cart.id} product={cart} deleteProduct={handleDeleteProduct} />
                     ))}
