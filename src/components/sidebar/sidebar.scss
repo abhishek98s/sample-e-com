@@ -1,7 +1,31 @@
 @use '../../styles/vars' as*;
 
 .sidebar-wrapper {
+    border-left: 1px solid $neutral-400;
+    transition: ease .4s;
+    box-shadow: -20px 0px 64px #00000057;
+
+    .heading {
+        border-bottom: 1px solid $neutral-400;
+    }
+
+    .sort-btn {
+        background-color: $neutral-300;
+
+        &:hover {
+            background-color: $neutral-400;
+        }
+    }
+
     .tot-price {
         background-color: $neutral-250;
+    }
+
+    &.show {
+        right: 0;
+    }
+
+    .close-cart{
+        border: 1px solid $neutral-600;
     }
 }

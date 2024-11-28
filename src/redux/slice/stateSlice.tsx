@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 const stateSlice = createSlice({
     name: 'state',
     initialState: {
-        isCartOpen: true,
+        isCartOpen: false,
     },
     reducers: {
         toggleCart: (state) => {
             state.isCartOpen = !state.isCartOpen;
+            console.log(2)
         },
     },
 });
