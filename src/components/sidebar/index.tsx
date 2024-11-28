@@ -5,7 +5,7 @@ import close from '../../images/close.svg';
 import CartProduct from '../cart-product';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../redux/store';
-import { removeFromCart } from '../../redux/slice/productSlice';
+import { removeFromCart, sortCartProducts } from '../../redux/slice/productSlice';
 import { IProduct } from '../../types/product';
 import { toggleCart } from '../../redux/slice/stateSlice';
 
@@ -14,6 +14,8 @@ const Sidebar = () => {
     const isCartOpen = useSelector((state: IRootState) => state.state.isCartOpen);
     const dispatch = useDispatch();
     const [totalPrice, setTotalPrice] = useState(0);
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const calculateTotalPrice = () => {
@@ -36,6 +38,13 @@ const Sidebar = () => {
         dispatch(toggleCart())
     }
 
+    const handleSort = (sortBy: 'a-z' | 'z-a') => {
+        dispatch(sortCartProducts({ sortBy }))
+    }
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    }
     return (
         <article className={`${isCartOpen ? 'show' : ''} sidebar-wrapper z-10 fixed top-0 bottom-0 -right-full max-w-[400px] w-full bg-white p-[8px] pt-[24px]`}>
             <div className="flex flex-col h-full">
@@ -43,11 +52,16 @@ const Sidebar = () => {
                 <div className="heading pb-[8px] flex justify-between mb-[20px]">
                     <div className="title text-[16px] font-bold">Cart</div>
 
-                    <div className="sort-btn flex cursor-pointer rounded-[4px] p-[4px_8px]">
+                    <div onClick={toggleDropdown} className="sort-btn relative flex cursor-pointer rounded-[4px] p-[4px_8px]">
                         <div className="img-wrapper flex-center p-[4px] max-w-[24px] w-full h-[24px]">
                             <img src={sort} alt={sort} />
                         </div>
                         <span className='text-[14px] font-bold'>sort</span>
+
+                        <div hidden={!isDropdownOpen} className={`absolute right-0 top-full mt-[12px] bg-neutral-50 p-[8px] rounded-[4px]`}>
+                            <div onClick={() => handleSort('a-z')} className='text-[14px] p-[4px_8px] rounded-[4px] text-neutral-500 hover:bg-neutral-100'>Acending</div>
+                            <div onClick={() => handleSort('z-a')} className='text-[14px] p-[4px_8px] rounded-[4px] text-neutral-500 hover:bg-neutral-100'>Decending</div>
+                        </div>
                     </div>
                 </div>
 

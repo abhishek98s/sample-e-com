@@ -60,6 +60,34 @@ const productSlice = createSlice({
         setProducts: (state, action: PayloadAction<IProduct[]>) => {
             state.products = action.payload;
         },
+        sortCartProducts: (state, action: PayloadAction<{ sortBy: string }>) => {
+            const sort = action.payload.sortBy.toLocaleLowerCase();
+            switch (sort) {
+                case 'a-z':
+                    state.cart.sort((a, b) => {
+                        if (a.title < b.title) {
+                            return -1;
+                        }
+                        if (a.title > b.title) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+                    break;
+
+                case 'z-a':
+                    state.cart.sort((a, b) => {
+                        if (a.title < b.title) {
+                            return 1;
+                        }
+                        if (a.title > b.title) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    break;
+            }
+        },
         setNoOfQuantity: (state, action: PayloadAction<{ id: number, isAdd?: 'add' }>) => {
             const { id, isAdd } = action.payload;
 
@@ -80,6 +108,6 @@ const productSlice = createSlice({
     },
 });
 
-export const { addToCart, removeFromCart, setProducts, setNoOfQuantity } = productSlice.actions;
+export const { addToCart, removeFromCart, setProducts, setNoOfQuantity, sortCartProducts } = productSlice.actions;
 
 export default productSlice.reducer;
