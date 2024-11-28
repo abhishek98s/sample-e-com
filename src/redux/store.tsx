@@ -1,7 +1,7 @@
 // src/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import productReducer from './slice/productSlice';
-import stateReducer from './slice/navbarSlice';
+import stateReducer from './slice/stateSlice';
 
 export type IRootState = {
     product: ReturnType<typeof productReducer>;

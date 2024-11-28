@@ -8,7 +8,6 @@ import product4 from '../../images/product-4.png';
 import { IProduct } from '../../types/product';
 
 
-
 interface ProductState {
     products: IProduct[];
     cart: IProduct[];
@@ -18,29 +17,26 @@ const initialState: ProductState = {
     products: [
         {
             id: 1,
-            title: 'Italian premium',
-            price: 12,
+            title: 'Gourmet Pasta',
+            price: 15,
             image: product1,
         },
-
         {
             id: 2,
-            title: 'Italian premium',
-            price: 12,
+            title: 'Organic Olive Oil',
+            price: 25,
             image: product2,
         },
-
         {
             id: 3,
-            title: 'Italian premium',
-            price: 12,
+            title: 'Artisan Bread',
+            price: 8,
             image: product3,
         },
-
         {
             id: 4,
-            title: 'Italian premium',
-            price: 12,
+            title: 'Fresh Basil Pesto',
+            price: 10,
             image: product4,
         },
     ],
@@ -52,7 +48,11 @@ const productSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action: PayloadAction<IProduct>) => {
-            state.cart.push(action.payload);
+            const productExists = state.cart.find(product => product.id === action.payload.id);
+
+            if (!productExists) {
+                state.cart.push(action.payload);
+            }
         },
         removeFromCart: (state, action: PayloadAction<{ title: string }>) => {
             state.cart = state.cart.filter(product => product.title !== action.payload.title);

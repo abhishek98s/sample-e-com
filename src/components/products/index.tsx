@@ -1,20 +1,29 @@
 import React from 'react';
-import product1 from '../../images/product-1.png';
 import './products.scss';
+import { IProduct } from '../../types/product';
 
-function Product() {
+interface ProductProps {
+    product: IProduct,
+    addToCart: (product: IProduct) => void;
+}
+
+
+const Product: React.FC<ProductProps> = ({ product, addToCart }) => {
+
+    const { id, title, price, image } = product;
+
     return (
         <div className="product">
             <div className="image-wrapper mb-[24px]">
-                <img src={product1} alt='product' />
+                <img src={image} alt='product' />
             </div>
 
-            <div className="title mb-[8px] font-bold">Italian premium shirt</div>
+            <div className="title mb-[8px] font-bold">{title}</div>
 
             <div className="flex justify-between">
-                <div className="price-wrapper">$120</div>
+                <div className="price-wrapper">{`$ ${price}`}</div>
 
-                <button className="add-cart">Add to cart</button>
+                <button className="add-cart" onClick={() => addToCart(product)}>Add to cart</button>
             </div>
         </div>
     )
