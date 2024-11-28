@@ -25,7 +25,11 @@
         right: 0;
     }
 
-    .close-cart{
+    .close-cart {
         border: 1px solid $neutral-600;
+    }
+
+    .price-wrapper {
+        border-top: 1px solid $neutral-400;
     }
 }

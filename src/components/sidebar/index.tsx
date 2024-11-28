@@ -32,7 +32,7 @@ const Sidebar = () => {
         dispatch(removeFromCart({ title }));
     }
 
-    const closeCart =()=>{
+    const closeCart = () => {
         dispatch(toggleCart())
     }
 
@@ -55,9 +55,10 @@ const Sidebar = () => {
                     {cartProducts && cartProducts.map((cart: IProduct) => (
                         <CartProduct key={cart.id} product={cart} deleteProduct={handleDeleteProduct} />
                     ))}
+                    {!cartProducts.length && <div className='text-center font-medium mt-[100px] text-[14px] text-neutral-400'>Cart empty<br />Add some product</div>}
                 </div>
 
-                <div className="price-wrapper flex justify-between p-[8px]">
+                <div className="price-wrapper flex justify-between p-[8px] pt-[16px]">
                     <div className="title text-[14px] font-bold">Total</div>
 
                     <div className="tot-price p-[4px_12px]">{`$ ${totalPrice}`}</div>
